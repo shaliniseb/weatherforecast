@@ -15,18 +15,25 @@ A small application for weather forecast that interacts with the OpenWeather API
  - https://openweathermap.org/api/geocoding-api API to fecth latitude and longitude
 
 ## How to setup
- - Download project from git
- - cd weatherforecast
  ### APi server
+ - Clone project from git https://github.com/shaliniseb/weatherforecast.git ``` git clone  https://github.com/shaliniseb/weatherforecast.git ```
+ - ``` cd weatherforecast ```
+ - Rename .env_local to .env
+ - execute the command  
+  ``` composer install ```
  - In .env file add your OpenWeatherMap API key in  API_ID  variable
- - php artisan serve - this will make the api server up and running
+ - ``` php artisan serve ``` - this will make the api server up and running
  - By default the API server will be accessble using  http://127.0.0.1:8000/api
  
  ### Front end
-  - from weatherforecast folder 
-  - cd frontend
+  - Create a new folder  ``` mkdir weatherfrontend ```
+  - ``` cd weatherfrontend ```
+  - Clone project from git https://github.com/shaliniseb/weatherforecast.git ``` git clone  https://github.com/shaliniseb/weatherforecast.git ```
+  - ``` cd weatherforecast  ```
+  - run ``` git checkout master ```
+  - execute command ``` npm install ```
   - Correct the API server url 'proxy' in package.json file. Default value is http://127.0.0.1:8000/api
-  - npm start 
+  - ``` npm start ```
   - The above command will make the front end up and running in http://localhost:3000/
 
   #### Current Weather 
