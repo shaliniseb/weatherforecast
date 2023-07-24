@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Head from "./components/Head";
+import CurrentWeather from "./pages/CurrentWeather";
+import NotFoundPage from "./pages/NotFoundPage";
+import DayWeather from "./pages/DayWeather";
+import Menu from "./components/Menu";
+import WeeklyWeather from "./pages/WeeklyWeather";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      {<Head />}
+      <div className="container">
+        <div className="app">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Menu />}>
+                <Route index element={<CurrentWeather place="London" />} />
+                <Route
+                  path="dayWeather"
+                  element={<DayWeather location="London" />}
+                />
+                <Route
+                  path="weeklyWeather"
+                  element={<WeeklyWeather area="London" />}
+                />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </div>
     </div>
   );
 }
